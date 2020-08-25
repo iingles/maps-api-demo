@@ -1,0 +1,43 @@
+:<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Isaac's Maps API Demo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="styles/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Isaac's Google Map</h1>
+        <input id="pac-input" class="controls" type="text" placeholder="Search Box" />
+        <div id="map"></div>        
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+        
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+                https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
+
+  
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyC4h9tqhToR-q0D4oSmARHAktghUcgZduY",
+                authDomain: "maps-api-demo-287420.firebaseapp.com",
+                databaseURL: "https://maps-api-demo-287420.firebaseio.com",
+                projectId: "maps-api-demo-287420",
+                storageBucket: "maps-api-demo-287420.appspot.com",
+                messagingSenderId: "919241896611",
+                appId: "1:919241896611:web:33f2a30ed4002b0e970516",
+                measurementId: "G-ET07MTE27M"
+            }
+
+            var mapApp = firebase.initializeApp(firebaseConfig)
+        </script>
+
+
+        <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4h9tqhToR-q0D4oSmARHAktghUcgZduY&callback=initMap&libraries=places"></script>
+
+        <script src="scripts/buildMap.js"></script>
+    </body>
+</html>

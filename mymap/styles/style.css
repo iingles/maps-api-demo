@@ -1,0 +1,61 @@
+html {
+    font-size: 62.5%
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+/* Maps info window */
+
+.broker-info-container {
+    display: flex;
+    width: 100%;
+}
+
+.broker-map-photo {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.broker-title {
+    font-size: 1.8rem;
+}
+
+.broker-desc {
+    max-width: 20rem;
+    margin: 0 1rem;
+}
+
+/* Maps search box */
+
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin: 1rem;
+  padding: 1rem;
+  text-overflow: ellipsis;
+  width: 400px;
+  border: 1 px solid #ccc;
+  box-shadow: 1px 1px 1px #ccc;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
