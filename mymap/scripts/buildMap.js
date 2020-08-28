@@ -1,5 +1,21 @@
 const firestore = mapApp.firestore()
 
+let val
+
+const address = document.getElementById('address')
+const coordsUpdate = document.getElementById('generatedCoords')
+
+// Variable for geocoding
+let geocoder
+
+// Create the new map
+let map
+
+address.addEventListener('keydown', (evt) => {
+    coordsUpdate.innerHTML = evt.target.value
+})
+
+
 function initMap() {
     let currWindow = false
 
@@ -10,10 +26,14 @@ function initMap() {
             lat: 40.6097,
             lng: -111.9391
         }
-    }
+    }   
 
-    // Create the new map
-    const map = new google.maps.Map(document.getElementById("map"), options)
+    map = new google.maps.Map(document.getElementById("map"), options)
+    geocoder = new google.maps.Geocoder()
+
+    let latlng = new google.maps.LatLng(-34.397, 150.644)
+
+     
 
     const brokers = []
 
@@ -140,6 +160,31 @@ function initMap() {
         })
         map.fitBounds(bounds);
     })
+}
 
+// for geocoding
+function codeAddress() {
+    // const address = document.getElementById('address').nodeValue
 
+    const addressValue = address.value
+    
+    geocoder.geocode({
+        'address': addressValue
+    },
+        function (results, status) {
+            if (status == 'OK') {
+                map.setCenter(results[0].geometry.location)
+
+                const marker = new google.maps.Marker({
+                    map,
+                    position: results[0].geometry.location
+                })
+
+                coordsUpdate.innerHTML = `generated coordinates: ${results[0].geometry.location}`
+
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status)
+            }
+        }
+    )
 }

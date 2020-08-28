@@ -9,7 +9,16 @@
     <body>
         <h1>Isaac's Google Map</h1>
         <input id="pac-input" class="controls" type="text" placeholder="Search Box" />
-        <div id="map"></div>        
+        <div id="map"></div>
+        
+        <div>
+            <input id="address" type="textbox">
+            <input type="button" value="Encode" onclick="codeAddress()">
+        </div>
+
+        <div id="generatedCoords">
+
+        </div>
 
         <!-- The core Firebase JS SDK is always required and must be listed first -->
         <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
